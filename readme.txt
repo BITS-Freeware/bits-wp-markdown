@@ -4,7 +4,7 @@ Tags: markdown, editor, writing, comments, gutenberg
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,6 +121,10 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 
 == Changelog ==
 
+= 1.3.3 =
+* Security: updates the bundled Markdown parser (league/commonmark 2.10.7) to fix a slowdown that very large tables could cause and a gap in its raw-HTML filtering.
+* Security: updates the bundled YAML parser (symfony/yaml 7.4.23) to fix a slowdown that crafted front matter could cause.
+
 = 1.3.2 =
 * Runs on PHP 8.3, 8.4 and 8.5. The minimum PHP version is now 8.3 (was 8.4).
 
@@ -162,6 +166,9 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 * Jetpack Markdown coexistence: skip conversion while that module is active, then adopt existing Markdown posts.
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+Security update for the bundled Markdown and YAML parsers. Recommended for all sites.
 
 = 1.3.2 =
 Adds support for PHP 8.3 and 8.5. No changes to how the plugin works.
