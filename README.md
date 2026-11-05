@@ -18,6 +18,12 @@ composer install
 composer test
 ```
 
+`vendor/` is not committed. A Git checkout needs `composer install` before the plugin will load; the release zip (below) bundles production dependencies.
+
+## Dependency Updates
+
+Dependabot (`.github/dependabot.yml`) opens weekly pull requests for Composer and GitHub Actions updates, grouping minor and patch releases. CI (`.github/workflows/ci.yml`) runs the test suite on PHP 8.3, 8.4 and 8.5 and runs `composer audit` on every push and pull request, and weekly on a schedule so a newly published advisory turns the audit job red. KaTeX in `assets/vendor/katex/` is copied in by hand and is not covered by either.
+
 The Gutenberg block is plain `wp.*` JavaScript (no build step). Editor writing-surface craft notes: `PRODUCT.md`, `DESIGN.md`, `docs/impeccable.md`.
 
 ## WordPress.org

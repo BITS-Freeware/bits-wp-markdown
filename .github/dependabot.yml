@@ -1,0 +1,22 @@
+# Dependabot opens pull requests for outdated or vulnerable dependencies.
+# Security updates also need Dependabot alerts and security updates turned on
+# under Settings -> Advanced Security.
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      composer-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
