@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bristlecone Markdown 1.3.2\n"
+"Project-Id-Version: Bristlecone Markdown 1.3.3\n"
 "Report-Msgid-Bugs-To: https://github.com/Zyniker13/bits-wp-markdown/issues\n"
 "Last-Translator: Bristlecone IT Services <https://bristleconeit.com>\n"
 "Language-Team: Bristlecone IT Services\n"
