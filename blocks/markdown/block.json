@@ -5,7 +5,7 @@
 	"title": "Markdown",
 	"category": "text",
 	"icon": "editor-code",
-	"description": "Write formatted content in Markdown. Syntax is aligned with iA Writer.",
+	"description": "Write formatted content in Markdown. Syntax is aligned with zFolio.",
 	"keywords": [ "markdown", "md", "writing", "ia writer" ],
 	"textdomain": "bristlecone-markdown",
 	"editorScript": "bristlecone-markdown-block",

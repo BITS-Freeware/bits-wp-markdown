@@ -21,10 +21,18 @@ final class EditorAestheticsTest extends TestCase {
 
 		$this->assertIsString( $plugin );
 		$this->assertIsString( $readme );
-		$this->assertMatchesRegularExpression( '/^\s*\*\s*Version:\s*1\.3\.3$/m', $plugin );
-		$this->assertStringContainsString( "define( 'BRISTLECONE_MARKDOWN_VERSION', '1.3.3' );", $plugin );
-		$this->assertMatchesRegularExpression( '/^Stable tag:\s*1\.3\.3$/m', $readme );
-		$this->assertStringContainsString( '= 1.3.3 =', $readme );
+		$this->assertMatchesRegularExpression( '/^\s*\*\s*Version:\s*1\.4\.0$/m', $plugin );
+		$this->assertStringContainsString( "define( 'BRISTLECONE_MARKDOWN_VERSION', '1.4.0' );", $plugin );
+		$this->assertMatchesRegularExpression( '/^Stable tag:\s*1\.4\.0$/m', $readme );
+		$this->assertStringContainsString( '= 1.4.0 =', $readme );
+	}
+
+	public function test_initial_slash_opens_block_search(): void {
+		$js = file_get_contents( $this->plugin_root() . '/assets/js/block.js' );
+		$this->assertIsString( $js );
+		$this->assertStringContainsString( "value === '/' && openSlashInserter( props.clientId )", $js );
+		$this->assertStringContainsString( '__experimentalSlashInserter: true', $js );
+		$this->assertStringContainsString( "createBlock( 'core/paragraph' )", $js );
 	}
 
 	public function test_source_uses_plain_text_and_placeholder(): void {

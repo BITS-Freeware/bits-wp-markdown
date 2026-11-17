@@ -12,7 +12,7 @@ Use this document to generate the public plugin page. It is the source of truth 
 | **Product name** | Bristlecone Markdown |
 | **Slug** | `bristlecone-markdown` |
 | **Vendor** | Bristlecone IT Services |
-| **Version described** | 1.3.3 |
+| **Version described** | 1.4.0 |
 | **License** | GPL-2.0-or-later (GNU GPL v2 or later) |
 | **Price** | Fully free. No paid tier, no phone-home, no account. |
 | **WordPress.org listing** | In submission. Do not claim it is listed until it is. A “Download” control may say it will be available on WordPress.org, with GitHub as the current source. |
@@ -63,13 +63,13 @@ Bristlecone Markdown
 
 ### One-sentence pitch
 
-Write WordPress posts, pages, comments, and iA Writer drafts in Markdown — without Jetpack — with syntax aligned to iA Writer.
+Write WordPress posts, pages, comments, and iA Writer drafts in Markdown — without Jetpack — with syntax aligned to zFolio.
 
 ### Lead
 
 Bristlecone Markdown is a free WordPress plugin from [Bristlecone IT Services](https://bristleconeit.com). It converts Markdown to HTML on the server, keeps the Markdown source for later edits, and stores HTML so the site still displays if the plugin is deactivated.
 
-It is a self-contained replacement for **Jetpack’s Markdown module only**, not the rest of Jetpack. Syntax is aligned with [iA Writer](https://ia.net/writer) Markdown (highlight, footnotes, YAML, math, and related extras). It does not reproduce iA Writer the application.
+It is a self-contained replacement for **Jetpack’s Markdown module only**, not the rest of Jetpack. Syntax is aligned with zFolio, and it reads the iA Writer Markdown extras (highlight, footnotes, YAML, math, and related marks). It does not reproduce iA Writer the application.
 
 ### Requirements
 

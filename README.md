@@ -1,6 +1,6 @@
 # Bristlecone Markdown
 
-WordPress plugin by [Bristlecone IT Services](https://bristleconeit.com). Write in Markdown without Jetpack, with syntax aligned to iA Writer.
+WordPress plugin by [Bristlecone IT Services](https://bristleconeit.com). Write in Markdown without Jetpack, with syntax aligned to zFolio.
 
 Plugin homepage: [https://bristleconeit.com/bristlecone-markdown](https://bristleconeit.com/bristlecone-markdown).
 

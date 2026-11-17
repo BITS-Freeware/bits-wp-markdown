@@ -41,6 +41,80 @@
 		} );
 	}
 
+	/**
+	 * Hand an initial "/" to the block editor's slash inserter.
+	 *
+	 * The Markdown source is a plain textarea, which has no autocompleters. When
+	 * the block is empty and "/" is the first thing typed, swap the block for an
+	 * empty paragraph and type the "/" there, so the editor opens the same block
+	 * search that a paragraph shows. Returns false when that is not possible, in
+	 * which case the "/" stays in the Markdown source.
+	 *
+	 * @param {string} clientId Markdown block client ID.
+	 * @return {boolean} Whether the slash inserter took over.
+	 */
+	function openSlashInserter( clientId ) {
+		if ( ! clientId || ! wp.data || ! wp.blocks || typeof wp.blocks.createBlock !== 'function' ) {
+			return false;
+		}
+		if ( typeof wp.blocks.getBlockType === 'function' && ! wp.blocks.getBlockType( 'core/paragraph' ) ) {
+			return false;
+		}
+		var editor = wp.data.dispatch( 'core/block-editor' );
+		var store = wp.data.select( 'core/block-editor' );
+		if ( ! editor || ! store || typeof editor.replaceBlock !== 'function' || typeof editor.updateBlockAttributes !== 'function' ) {
+			return false;
+		}
+		if ( typeof store.canInsertBlockType === 'function' ) {
+			var rootClientId = typeof store.getBlockRootClientId === 'function' ? store.getBlockRootClientId( clientId ) : undefined;
+			if ( ! store.canInsertBlockType( 'core/paragraph', rootClientId ) ) {
+				return false;
+			}
+		}
+		ensureParagraphSlashInserter();
+		var paragraph = wp.blocks.createBlock( 'core/paragraph' );
+		editor.replaceBlock( clientId, paragraph );
+		// The editor only opens the slash inserter for text that changes after the
+		// paragraph mounts, so add the "/" on the next frame.
+		var schedule = window.requestAnimationFrame || function ( fn ) {
+			return window.setTimeout( fn, 16 );
+		};
+		schedule( function () {
+			editor.updateBlockAttributes( paragraph.clientId, { content: '/' } );
+			if ( typeof editor.selectionChange === 'function' ) {
+				editor.selectionChange( paragraph.clientId, 'content', 1, 1 );
+			}
+		} );
+		return true;
+	}
+
+	/**
+	 * Keep the slash inserter on paragraphs when Markdown is the default block.
+	 *
+	 * The block editor offers "/" block search only in the default block and in
+	 * blocks that opt in, so making Markdown the default would otherwise take it
+	 * away from paragraphs.
+	 */
+	function ensureParagraphSlashInserter() {
+		if ( ! wp.data || typeof wp.data.select !== 'function' || typeof wp.data.dispatch !== 'function' ) {
+			return;
+		}
+		var blocks = wp.data.select( 'core/blocks' );
+		var blocksEditor = wp.data.dispatch( 'core/blocks' );
+		if ( ! blocks || ! blocksEditor || typeof blocks.getBlockType !== 'function' || typeof blocksEditor.addBlockTypes !== 'function' ) {
+			return;
+		}
+		var paragraph = blocks.getBlockType( 'core/paragraph' );
+		if ( ! paragraph || ( paragraph.supports && paragraph.supports.__experimentalSlashInserter ) ) {
+			return;
+		}
+		blocksEditor.addBlockTypes(
+			Object.assign( {}, paragraph, {
+				supports: Object.assign( {}, paragraph.supports, { __experimentalSlashInserter: true } ),
+			} )
+		);
+	}
+
 	function markdownEdit( props, options ) {
 		options = options || {};
 		var sourceKey = options.sourceKey || 'markdown';
@@ -85,6 +159,9 @@
 		} );
 
 		function setSource( value ) {
+			if ( ! compatibility && ! markdown && value === '/' && openSlashInserter( props.clientId ) ) {
+				return;
+			}
 			var next = {};
 			next[ sourceKey ] = value;
 			props.setAttributes( next );
@@ -252,7 +329,7 @@
 									'bristlecone-markdown'
 							  )
 							: __(
-									'Write Markdown in this block. Syntax follows iA Writer (CommonMark plus highlight, footnotes, tables, math, metadata, and more). Task lists and Content Blocks are not converted.',
+									'Write Markdown in this block. Syntax is aligned with zFolio (CommonMark plus highlight, footnotes, tables, math, metadata, and more). Task lists and Content Blocks are not converted.',
 									'bristlecone-markdown'
 							  )
 					)
@@ -445,6 +522,7 @@
 				return;
 			}
 			wp.blocks.setDefaultBlockName( 'bristlecone/markdown' );
+			ensureParagraphSlashInserter();
 		}
 
 		function attempt() {

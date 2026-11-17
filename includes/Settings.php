@@ -332,7 +332,7 @@ final class Settings {
 		?>
 		<div class="wrap">
 			<h1><?php echo esc_html__( 'Bristlecone Markdown', 'bristlecone-markdown' ); ?></h1>
-			<p><?php echo esc_html__( 'Write posts, pages, and comments in Markdown. Syntax is aligned with iA Writer. HTML is stored on save so content still displays if the plugin is deactivated.', 'bristlecone-markdown' ); ?></p>
+			<p><?php echo esc_html__( 'Write posts, pages, and comments in Markdown. Syntax is aligned with zFolio. HTML is stored on save so content still displays if the plugin is deactivated.', 'bristlecone-markdown' ); ?></p>
 
 			<?php JetpackCompat::instance()->render_settings_notice(); ?>
 
