@@ -1,6 +1,6 @@
 {
   "name": "bristlecone/bristlecone-markdown",
-  "description": "Markdown for WordPress without Jetpack, with iA Writer-aligned syntax.",
+  "description": "Markdown for WordPress without Jetpack, with zFolio-aligned syntax.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "homepage": "https://bristleconeit.com/bristlecone-markdown",

@@ -4,15 +4,15 @@ Tags: markdown, editor, writing, comments, gutenberg
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 1.3.3
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Write in Markdown without Jetpack. Block editor, Classic Editor, comments, and iA Writer publishing, with iA Writer-aligned syntax.
+Write in Markdown without Jetpack. Block editor, Classic Editor, comments, and iA Writer publishing, with zFolio-aligned syntax.
 
 == Description ==
 
-Bristlecone Markdown lets you write WordPress content in Markdown and keep the source for later edits. It is a self-contained replacement for Jetpack’s Markdown features, and its syntax is aligned with [iA Writer](https://ia.net/writer) (Markdown support only, not the rest of the iA Writer app).
+Bristlecone Markdown lets you write WordPress content in Markdown and keep the source for later edits. It is a self-contained replacement for Jetpack’s Markdown features, and its syntax is aligned with zFolio. It also reads the iA Writer Markdown extras listed below, including posts published from iA Writer.
 
 The plugin is developed by [Bristlecone IT Services](https://bristleconeit.com). Plugin homepage: [bristleconeit.com/bristlecone-markdown](https://bristleconeit.com/bristlecone-markdown). Source and issues are on [GitHub](https://github.com/Zyniker13/bits-wp-markdown).
 
@@ -121,6 +121,11 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 
 == Changelog ==
 
+= 1.4.0 =
+* New: typing "/" at the start of an empty Markdown block opens the block search, the same as in a paragraph.
+* New: when Markdown is the default block, paragraphs keep their "/" block search.
+* Changed: the plugin description now says its syntax is aligned with zFolio.
+
 = 1.3.3 =
 * Security: updates the bundled Markdown parser (league/commonmark 2.10.7) to fix a slowdown that very large tables could cause and a gap in its raw-HTML filtering.
 * Security: updates the bundled YAML parser (symfony/yaml 7.4.23) to fix a slowdown that crafted front matter could cause.
@@ -166,6 +171,9 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 * Jetpack Markdown coexistence: skip conversion while that module is active, then adopt existing Markdown posts.
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+Typing "/" in an empty Markdown block now opens the block search.
 
 = 1.3.3 =
 Security update for the bundled Markdown and YAML parsers. Recommended for all sites.

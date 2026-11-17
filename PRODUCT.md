@@ -23,7 +23,7 @@ Primary users are **writers and editors** who want to compose WordPress posts an
 
 ## Product Purpose
 
-Bristlecone Markdown exists so a WordPress site can write and keep Markdown **without Jetpack**, with syntax aligned to iA Writer (Markdown support only, not the rest of the iA Writer app). Success is: source stays editable, published HTML still displays if the plugin is deactivated, and the same server parser is used for preview and publish.
+Bristlecone Markdown exists so a WordPress site can write and keep Markdown **without Jetpack**, with syntax aligned to zFolio. It also reads iA Writer Markdown extras (Markdown support only, not the rest of the iA Writer app). Success is: source stays editable, published HTML still displays if the plugin is deactivated, and the same server parser is used for preview and publish.
 
 ## Positioning
 
