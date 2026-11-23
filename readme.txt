@@ -4,7 +4,7 @@ Tags: markdown, editor, writing, comments, gutenberg
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,6 +121,9 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 
 == Changelog ==
 
+= 1.4.1 =
+* Security: updates the bundled math renderer (KaTeX 0.19.1) to close a gap that could let another script on the page bypass its safety restrictions.
+
 = 1.4.0 =
 * New: typing "/" at the start of an empty Markdown block opens the block search, the same as in a paragraph.
 * New: when Markdown is the default block, paragraphs keep their "/" block search.
@@ -171,6 +174,9 @@ New previews and new saves omit the permalink `#` glyph. HTML already stored in 
 * Jetpack Markdown coexistence: skip conversion while that module is active, then adopt existing Markdown posts.
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Security update for the bundled math renderer. Recommended for all sites.
 
 = 1.4.0 =
 Typing "/" in an empty Markdown block now opens the block search.
