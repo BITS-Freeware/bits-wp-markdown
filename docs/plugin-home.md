@@ -12,7 +12,7 @@ Use this document to generate the public plugin page. It is the source of truth 
 | **Product name** | Bristlecone Markdown |
 | **Slug** | `bristlecone-markdown` |
 | **Vendor** | Bristlecone IT Services |
-| **Version described** | 1.4.0 |
+| **Version described** | 1.4.1 |
 | **License** | GPL-2.0-or-later (GNU GPL v2 or later) |
 | **Price** | Fully free. No paid tier, no phone-home, no account. |
 | **WordPress.org listing** | In submission. Do not claim it is listed until it is. A “Download” control may say it will be available on WordPress.org, with GitHub as the current source. |
@@ -153,7 +153,7 @@ Footnote IDs are namespaced with the post ID (`bristlecone-markdown-fn-{id}-…`
 ### Privacy and assets
 
 - No tracking, no remote Markdown API, no “phone home.”
-- KaTeX **0.16.22** (JS, CSS, fonts) is bundled.
+- KaTeX **0.19.1** (JS, CSS, fonts) is bundled.
 - `highlight.php` runs on the server; GitHub-style CSS is bundled.
 - Unsafe raw HTML tags (for example `script`, `iframe`, `form`) are disallowed by the parser; posts and comments also pass through WordPress KSES.
 
